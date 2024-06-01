@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barcode Scanner</title>
+</head>
+<body>
+    <h1>Barcode Scanner</h1>
+    <video id="barcode-scanner" autoplay width="640" height="480" style="border: 2px solid black;"></video>
+    <div id="output"></div>
+
+    <script>
+        // Function to fetch webcam frames from server and update the video element
+        function fetchFrames() {
+            fetch('/video_feed')
+                .then(response => response.blob())
+                .then(data => {
+                    // Convert the received blob to an object URL
+                    const videoUrl = URL.createObjectURL(data);
+                    // Update the video element with the received frames
+                    const video = document.getElementById('barcode-scanner');
+                    video.src = videoUrl;
+                });
+        }
+
+        // Call fetchFrames function continuously
+        setInterval(fetchFrames, 1000);
+    </script>
+</body>
+</html>

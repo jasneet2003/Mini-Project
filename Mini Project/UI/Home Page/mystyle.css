@@ -1,0 +1,27 @@
+body, html {
+    height: 100%;
+    width: 100%;
+  }
+
+.topnav {
+    float: right;
+    display: flex;
+    padding: 8px;
+    background-color: #dddddd;
+  }
+
+  a {
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+
+  body {
+    background-image: linear-gradient(to bottom right,#2E79EA, #C155DC);
+  }
+
+  .white-box {
+    top: 350px;
+    background-color: white;
+    color: black;
+    <!--other positioning attributes-->
+}

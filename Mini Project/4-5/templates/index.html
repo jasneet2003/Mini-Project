@@ -1,0 +1,45 @@
+<!-- index.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance System</title>
+</head>
+<body>
+    <h1>Welcome to the Attendance System</h1>
+    <form action="/logout" method="POST">
+        <input type="submit" value="Logout">
+    </form>
+    <hr>
+    <h2>Students List</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Enrollment No.</th>
+                <th>Name</th>
+                <th>Attendance</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for student in students %}
+            <tr>
+                <td>{{ student.enrollment_no }}</td>
+                <td>{{ student.name }}</td>
+                <td>
+                    <form action="/submit_attendance" method="POST">
+                        <input type="hidden" name="name" value="{{ student.name }}">
+                        <select name="attendance">
+                            <option value="present">Present</option>
+                            <option value="absent">Absent</option>
+                        </select>
+                        <input type="submit" value="Submit">
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

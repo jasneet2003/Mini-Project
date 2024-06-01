@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input and Output</title>
+</head>
+<body>
+    <h2>Enter a string:</h2>
+    <form action="/" method="post">
+        <input type="text" id="user_input" name="user_input">
+        <button type="submit">Submit</button>
+    </form>
+
+    {% if entered_strings %}
+    <h2>Entered strings:</h2>
+    <ul>
+        {% for string in entered_strings %}
+        <li>{{ string }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+</body>
+</html>
